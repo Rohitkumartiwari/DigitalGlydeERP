@@ -27,6 +27,7 @@ import MonthlyDetail from "views/examples/MonthlyDetail";
 import Project from "views/examples/Project.js";
 import AssignProject from "views/examples/AssignProject.js";
 import Employee from "views/examples/Employee.js"
+import Projectpage from "views/examples/Projectpage.js"
 var routes = [
   
   {
@@ -65,7 +66,14 @@ var routes = [
     icon: "ni ni-chart-pie-35 text-pink",
     component: EmpDetail,
     layout: "/admin",
-  },   
+  }, 
+  // {
+  //   path: "/projectpage",
+  //    name: "Project Data",
+  //    icon: "ni ni-chart-pie-35 text-pink",
+  //    component: Projectpage,
+  //    layout: "/admin",
+  //  }  
 ];
 export default routes;
 
