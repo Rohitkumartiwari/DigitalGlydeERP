@@ -25,7 +25,7 @@ import { Container } from "reactstrap";
 import Sidebar from "../components/Sidebar/Sidebar.js";
 // import Login from "../views/examples/Login.js"
 import routes from "../routes.js";
-
+import Projectpage from "../views/examples/Projectpage";
 const Admin = (props) => {
   const mainContent = React.useRef(null);
   const location = useLocation();
@@ -69,7 +69,12 @@ const Admin = (props) => {
         /> */}
         <Switch>
           {getRoutes(routes)}
-          <Redirect from="*" to="/admin/login" />
+         
+         
+    <Route
+path="/admin/Projectpage" component={Projectpage} 
+/>
+<Redirect from="*" to="/admin/login" />
         </Switch>
         <Container fluid>
           {/* <AdminFooter /> */}
