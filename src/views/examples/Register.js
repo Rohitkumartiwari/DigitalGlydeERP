@@ -171,7 +171,7 @@ const Register = () => {
                   />
                 </InputGroup>
               </FormGroup>
-              <div className="text-center">
+              <div className="text-center2">
                 <Button onClick={onLogin}className="mt-4" color="primary" type="button">
                   Create account
                 </Button>
