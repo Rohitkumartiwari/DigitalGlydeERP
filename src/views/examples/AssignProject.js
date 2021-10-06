@@ -3,15 +3,24 @@ import { useState } from "react";
 import firebase from "../../firebase";
 import Autocomplete,{ createFilterOptions } from "@material-ui/lab/Autocomplete";
 import { TextField } from "@material-ui/core";
-
+const customStyles = {
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+  },
+};
 import {
     Input,
     Row,
     Col,
     Container,
-    Modal
+   
   } from "reactstrap";
-
+  import Modal from "react-modal";
 const AssignProject=()=>
 {
   var subtitle;
@@ -176,7 +185,7 @@ const AssignProject=()=>
  //Modal for Other
 function afterOpenModal() {
   // references are now sync'd and can be accessed.
-  subtitle.style.color = 'white';
+  // subtitle.style.color = 'white';
 }
 function closeModal(){
   setIsOpen(false);
@@ -262,8 +271,6 @@ console.log(taskdoc);
             }
             else{
            console.log("hello",v.tname);
-          // settaskval(v);
-         console.log( typeof(v.tname));
           setval(v);
             }
           }}  
