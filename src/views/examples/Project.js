@@ -69,7 +69,7 @@ const Project=()=>
               <br></br>
  
     <div className="form-group col-md-6">
-      <label for="inputEmail4">Project Name</label>
+      <label className="label1"for="inputEmail4">Project Name</label>
       <input type="text" className="form-control" id="inputPro" placeholder="project name" value={pname}
                     onChange={e=>
                     setpname(e.currentTarget.value)}
@@ -110,6 +110,7 @@ const Project=()=>
          <option value="end">IOS</option>            
        </Input>
     </div>   
+    <br></br>
  <div className="div2">
   <button onClick={onSubmit} type="submit" className="btn btn-primary">Submit</button>
   </div>
