@@ -24,25 +24,21 @@ const Login = () => {
   const[password,setPassword]=useState("");
   const[document,setDocuments]=useState([]);
   const history=useHistory();
-  // useEffect(()=>
-  // {
-  //   db.collection("userData")
-  //   .get()
-  //   .then((querySnapshot) => {
-  //     let arr = [];
-  //     querySnapshot.docs.map((doc) =>       
-  //       arr.push({
-  //            id: doc.id,
-  //         email:doc.data().email,
-  //          role: doc.data().role,
-  //         })           
-  //     )     
-  //     setDocuments(arr);
-  //     console.log("hii",arr);
-     
-  //   });
-  // },[]);
-  console.log(document);
+  useEffect(()=>
+  {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        console.log("data",user.email);
+        console.log("data",user.name);
+       console.log("user is same");
+       history.push("/admin/index");
+      } else {
+        console.log("user is different");
+      }
+      console.log(document);
+    })
+  },[]);
+  
   // const user = firebase.auth().currentUser;
   // if (user) {
   //   console.log("username",user.email);
@@ -51,49 +47,42 @@ const Login = () => {
   //   console.log("no");
   //   history.push("/auth/login");
   // }
-  firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-      console.log("data",user.email);
-      console.log("data",user.name);
-     console.log("user is same");
-     history.push("/admin/index");
-    } else {
-      console.log("user is different");
-    }
-  })
+  
   
   const onLogin=(e)=>
   {
-   
+   console.log("hello");
     e.preventDefault();
     
     auth.signInWithEmailAndPassword(email, password).then(res => {
      
-      if(res)
-      {
-
-db.collection("userData").where("email", "==", res.email)
+//       if(res)
+//       {
+console.log(res);
+     console.log(res.user.email) ;
+db.collection("userData").where("email", "==", res.user.email)
 .get()
 .then(function(querySnapshot) {
     querySnapshot.forEach(function(doc) {
         // doc.data() is never undefined for query doc snapshots
+        console.log("enter");
         console.log(doc.id, " => ", doc.data().role);
         if(doc.data().role=="user")
         {
          history.push("/user/index") ;
         }
         else{
-          history.push("admin/index")
+          history.push("/admin/index")
         }
     });
 })
 .catch(function(error) {
     console.log("Error getting documents: ", error);
 });
-        history.push("/admin/index");
-      }
+        // history.push("/admin/index");
+      // }
   }).catch(err => {
-      alert("enter email and password");
+      alert("Enter correct email and password");
   })
  
   }
@@ -102,10 +91,10 @@ db.collection("userData").where("email", "==", res.email)
   const onNew=(e)=>
   {
     e.preventDefault();
-   
+    history.push("/auth/register");
    
   }
-console.log(document);
+
   return (
     <React.Fragment>
       <Col lg="5" md="7">
@@ -203,7 +192,7 @@ console.log(document);
                   <span className="text-muted">Remember me</span>
                 </label>
               </div>
-              <div className="text-center">
+              <div className="text-center1">
                 <Button  onClick={onLogin} className="my-4" color="primary" type="button">
                   Sign in
                 </Button>
