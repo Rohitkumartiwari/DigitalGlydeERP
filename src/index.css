@@ -516,3 +516,38 @@ tr:nth-child(odd) {
   margin-left: 60px;
   padding-block: 30px;
 }
+.divtask1
+{
+  padding-right: 10px;
+  margin-top: 2px;
+  margin-left: 801px;
+  margin-bottom: 200px;
+}
+.tasktable
+{
+  width: 100%;
+  
+  color: red;
+  background-color: transparent;
+  margin-left: 13px;
+}
+.form-group col-md-5
+{
+  background-color: #8898aa;
+}
+.taskdiv
+{
+  background-color: #8898aa;
+}
+input[type="file"] {
+  display: block;
+  width: 175px;
+  height: 31px;
+  font-size: 15px;
+}
+button:not(:disabled), [type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled) {
+  cursor: pointer;
+  height: 31px;
+  font-size: 15px;
+}
+
