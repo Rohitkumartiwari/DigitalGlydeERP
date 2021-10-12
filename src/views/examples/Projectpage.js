@@ -18,9 +18,9 @@ return(
       <Container className="cont">
           <h1>Project Tab</h1>
           
-          <Box sx={{ width: '100%', typography: 'body1',backgroundColor:'#e9ecef' }}>
+          <Box sx={{ width: '100%', typography: 'body1',backgroundColor:'' }}>
           
-          <Box sx={{ borderBottom: 1, borderColor: 'divider',backgroundColor: '#adb5bd' }}>  
+          <Box sx={{ borderBottom: 1, borderColor: 'divider',backgroundColor: 'wheat' }}>  
          <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" >
           <Tab label="Project Detail" />
           <Tab label="Project Document"  />
@@ -29,7 +29,7 @@ return(
        </Box>
       {value ===0 &&<Projectdatatab {...props}/> }
       {value ===1 &&<Projectdoctab/> }
-      {value ===2 &&<Addtasktab/> }
+      {value ===2 &&<Addtasktab {...props}/> }
      
       </Box> 
       </Container>
